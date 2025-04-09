@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-    res.send("Hello, server is running!");
+  res.send("Hello, server is running!");
 });
 
 app.use("/api/admin", adminRoutes);
@@ -35,7 +35,6 @@ app.use("/api/attendance", attendanceRoutes);
 app.use("/api/marks", marksRoutes);
 app.use("/api/student", studentRoutes);
 
-
 app.listen(PORT, () => {
-    console.log(`🚀 Server running at:http://localhost:${PORT}`);
+  console.log(`🚀 Server running at:http://localhost:${PORT}`);
 });

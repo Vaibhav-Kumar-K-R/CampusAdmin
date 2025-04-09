@@ -247,13 +247,11 @@ export const bulkUpdateAttendance = async (req, res) => {
     console.log("Request body:", req.body);
 
     if (!institutionDomain) {
-      return res
-        .status(400)
-        .json({
-          message: "Institution domain is required",
-          data: [],
-          code: 400,
-        });
+      return res.status(400).json({
+        message: "Institution domain is required",
+        data: [],
+        code: 400,
+      });
     }
 
     if (!sectionId || !courseId || !facultyId) {
@@ -265,13 +263,11 @@ export const bulkUpdateAttendance = async (req, res) => {
     }
 
     if (!Array.isArray(attendanceData) || attendanceData.length === 0) {
-      return res
-        .status(400)
-        .json({
-          message: "Attendance updates must be a non-empty array",
-          data: [],
-          code: 400,
-        });
+      return res.status(400).json({
+        message: "Attendance updates must be a non-empty array",
+        data: [],
+        code: 400,
+      });
     }
 
     // Normalize date to prevent timezone issues

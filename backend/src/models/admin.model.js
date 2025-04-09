@@ -22,7 +22,9 @@ const adminSchema = new mongoose.Schema({
     validate: {
       validator: function (email) {
         // Ensure the email domain matches the institution domain
-        return this.institutionDomain && email.endsWith(`@${this.institutionDomain}`);
+        return (
+          this.institutionDomain && email.endsWith(`@${this.institutionDomain}`)
+        );
       },
       message: "Email must belong to the registered institution domain",
     },
@@ -31,7 +33,7 @@ const adminSchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, "Password is required"],
-    minlength: [8, "Password should be at least 8 characters"], // Enforce a minimum length of 8 for security    
+    minlength: [8, "Password should be at least 8 characters"], // Enforce a minimum length of 8 for security
   },
 
   institutionName: {
@@ -53,10 +55,12 @@ const adminSchema = new mongoose.Schema({
   },
 });
 
-
 // Middleware to enforce email domain validation
 adminSchema.pre("save", function (next) {
-  if (this.isModified("collegeEmail") && !this.collegeEmail.endsWith(`@${this.institutionDomain}`)) {
+  if (
+    this.isModified("collegeEmail") &&
+    !this.collegeEmail.endsWith(`@${this.institutionDomain}`)
+  ) {
     return next(new Error("Admin email must match the institution domain"));
   }
   next();

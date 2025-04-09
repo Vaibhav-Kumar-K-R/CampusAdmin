@@ -113,13 +113,11 @@ export const bulkAddMarks = async (req, res) => {
       code: 200,
     });
   } catch (error) {
-    return res
-      .status(500)
-      .json({
-        message: error.message || "Internal Server Error",
-        data: [],
-        code: 500,
-      });
+    return res.status(500).json({
+      message: error.message || "Internal Server Error",
+      data: [],
+      code: 500,
+    });
   }
 };
 
@@ -241,13 +239,11 @@ export const bulkUpdateMarks = async (req, res) => {
       code: 200,
     });
   } catch (error) {
-    return res
-      .status(500)
-      .json({
-        message: error.message || "Internal Server Error",
-        data: [],
-        code: 500,
-      });
+    return res.status(500).json({
+      message: error.message || "Internal Server Error",
+      data: [],
+      code: 500,
+    });
   }
 };
 

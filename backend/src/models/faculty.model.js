@@ -17,10 +17,12 @@ const facultySchema = new mongoose.Schema({
     type: String,
     required: [true, "College email is required"],
     unique: true,
-    match: [/\S+@\S+\.\S+/, "Please provide a valid email address"], 
+    match: [/\S+@\S+\.\S+/, "Please provide a valid email address"],
     validate: {
       validator: function (email) {
-        return this.institutionDomain && email.endsWith(`@${this.institutionDomain}`);
+        return (
+          this.institutionDomain && email.endsWith(`@${this.institutionDomain}`)
+        );
       },
       message: "Email must belong to the registered institution domain",
     },
@@ -29,19 +31,19 @@ const facultySchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, "Password is required"],
-    minlength: [8, "Password should be at least 8 characters"], // Enforce a minimum length of 8 for security    
+    minlength: [8, "Password should be at least 8 characters"], // Enforce a minimum length of 8 for security
   },
-  
+
   institutionDomain: {
     type: String,
-    required: [true, "Institution domain is required"],      
-    match: [/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Invalid domain format"]
+    required: [true, "Institution domain is required"],
+    match: [/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Invalid domain format"],
   },
 
   facultyId: {
     type: String,
     required: [true, "ID is required"],
-    trim: true
+    trim: true,
   },
 
   phone: {
@@ -56,15 +58,22 @@ const facultySchema = new mongoose.Schema({
     required: [true, "Department is required"],
   },
 
-  sections: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Section",    
-  }],
+  sections: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Section",
+    },
+  ],
 
   designation: {
     type: String,
     required: [true, "Designation is required"],
-    enum: ["Professor", "Associate Professor", "Assistant Professor", "Lecturer"],
+    enum: [
+      "Professor",
+      "Associate Professor",
+      "Assistant Professor",
+      "Lecturer",
+    ],
   },
 
   joiningDate: {
