@@ -4,4 +4,4 @@ nodemon.json
 .env
 .env.local
 .env.config
-.prettirrc
+.prettierrc
