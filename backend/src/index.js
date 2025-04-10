@@ -19,10 +19,7 @@ connectDB();
 
 app.use(express.json());
 
-app.use(cors({
-  origin:"https://erpcampusadmin.netlify.app/",
-  credentials: true
-}));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Hello, server is running!");
