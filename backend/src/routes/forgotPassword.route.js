@@ -54,22 +54,22 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ code: 400, message: "Email is required" });
   }
 
-  // if(user=="admin"){
-  //   const admin=await Admin.findOne({ email });
-  //   if(!admin){
-  //     return res.status(404).json({ code: 404, message: "Admin with given email not found" });
-  //   }
-  // }else if(user=="faculty"){
-  //    const faculty=await Faculty.findOne({ email });
-  //   if(!faculty){
-  //     return res.status(404).json({ code: 404, message: "Faculty with given email not found" });
-  //   }
-  // }else{
-  //   const student=await Student.findOne({ email });
-  //   if(!student){
-  //     return res.status(404).json({ code: 404, message: "Student with given email not found" });
-  //   }
-  // }
+  if(user=="admin"){
+    const admin=await Admin.findOne({ email });
+    if(!admin){
+      return res.status(404).json({ code: 404, message: "Admin with given email not found" });
+    }
+  }else if(user=="faculty"){
+     const faculty=await Faculty.findOne({ email });
+    if(!faculty){
+      return res.status(404).json({ code: 404, message: "Faculty with given email not found" });
+    }
+  }else{
+    const student=await Student.findOne({ email });
+    if(!student){
+      return res.status(404).json({ code: 404, message: "Student with given email not found" });
+    }
+  }
   const token = uuid();
   const passreset = new PasswordReset({
     email,
