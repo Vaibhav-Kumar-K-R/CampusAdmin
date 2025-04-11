@@ -10,7 +10,8 @@ import studentRoutes from "./routes/student.routes.js";
 import semesterRoutes from "./routes/semester.routes.js";
 import departmentRoutes from "./routes/department.routes.js";
 import attendanceRoutes from "./routes/attendance.routes.js";
-
+import forgotPasswordRoute from "./routes/forgotPassword.route.js";
+import verifyPasswordRoute from "./routes/verifypassword.route.js";
 const PORT = process.env.PORT || 7001;
 
 const app = express();
@@ -34,6 +35,8 @@ app.use("/api/course", courseRoutes);
 app.use("/api/attendance", attendanceRoutes);
 app.use("/api/marks", marksRoutes);
 app.use("/api/student", studentRoutes);
+app.use("/api/forgot-password", forgotPasswordRoute);
+app.use("/api/verify-password", verifyPasswordRoute);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running at:http://localhost:${PORT}`);
