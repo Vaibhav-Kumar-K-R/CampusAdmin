@@ -1,4 +1,4 @@
-"use client";
+;
 
 import { useMemo } from "react";
 import { Label, Pie, PieChart } from "recharts";
