@@ -52,7 +52,7 @@ router.post("/", async (req, res) => {
     student.password = await bcrypt.hash(password, 10);
     await student.save();
   }
-  await passreset.delete();
+  await PasswordReset.deleteOne({ token });
   res.status(200).json({ code: 200, message: "Password reset successfull 🚀" });
 });
 
