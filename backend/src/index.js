@@ -21,7 +21,7 @@ connectDB();
 app.use(express.json());
 
 app.use(cors({
-  origin: "https://erpcampusadmin.netlify.app/",
+  origin: "*",
   credentials: true
 }));
 
