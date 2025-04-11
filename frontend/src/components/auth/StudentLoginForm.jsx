@@ -150,7 +150,7 @@ const StudentLoginForm = () => {
 
   // Handle password reset
   const handleForgotPassword = () => {
-    navigate("/forgot-password");
+    navigate("/student/forgot-password");
   };
 
   // Handle back to home

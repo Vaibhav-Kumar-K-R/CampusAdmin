@@ -150,7 +150,7 @@ const FacultyLoginForm = () => {
 
   // Handle password reset
   const handleForgotPassword = () => {
-    navigate("/forgot-password");
+    navigate("/faculty/forgot-password");
   };
 
   // Handle back to home

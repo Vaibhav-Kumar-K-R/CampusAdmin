@@ -150,7 +150,7 @@ const AdminLoginForm = () => {
 
   // Handle password reset
   const handleForgotPassword = () => {
-    navigate("/forgot-password");
+    navigate("/admin/forgot-password");
   };
 
   // Handle back to home

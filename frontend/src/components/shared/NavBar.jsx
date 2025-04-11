@@ -144,10 +144,10 @@ export const NavBar = () => {
               </NavigationMenuItem>
 
               {user && (
-                <NavigationMenuItem className="hidden sm:flex justify-center items-center">
+                <NavigationMenuItem className="hidden bg-[#048c7f] sm:flex justify-center items-center">
                   {user.role === "Admin" && (
                     <Link
-                      className="text-white mr-3 hover:text-white/80 px-4 py-2"
+                      className="text-white mr-3  px-4 py-2"
                       to={"/admin-dashboard"}
                     >
                       Dashboard
@@ -155,7 +155,7 @@ export const NavBar = () => {
                   )}
                   {user.role === "Faculty" && (
                     <Link
-                      className="text-white mr-3 hover:text-white/80 px-4 py-2"
+                      className="text-white mr-3 px-4 py-2"
                       to={"/faculty-dashboard"}
                     >
                       Dashboard
@@ -163,7 +163,7 @@ export const NavBar = () => {
                   )}
                   {user.role === "Student" && (
                     <Link
-                      className="text-white mr-3 hover:text-white/80 px-4 py-2"
+                      className="text-white mr-3  px-4 py-2"
                       to={"/student-dashboard"}
                     >
                       Dashboard
@@ -175,7 +175,7 @@ export const NavBar = () => {
               {!user && (
                 <NavigationMenuItem className="hidden sm:flex justify-center items-center">
                   <Link
-                    className="text-white mr-3 hover:text-white/80 px-4 py-2"
+                    className="text-white mr-3  px-4 py-2"
                     href={"#dashboard"}
                     onClick={(e) => {
                       document
@@ -211,14 +211,14 @@ export const NavBar = () => {
                 </div>
               </div>
             </SheetTrigger>
-            <SheetContent className="sm:hidden bg-[#048c7f] text-white w-64 h-full p-4">
+            <SheetContent className="sm:hidden bg-white text-white w-64 h-full p-4">
               <SheetHeader>
                 <SheetTitle className="text-lg font-bold text-white">
                   CampusAdmin
                 </SheetTitle>
               </SheetHeader>
-              <div className="mt-4 flex justify-between gap-5 bg-[#37102d] p-4 border border-white/20 rounded-xl">
-                <div className="flex flex-col justify-start items-center gap-2">
+              <div className="mt-4 flex bg-[#048c7f] justify-between gap-5 text-white  p-4 border border-white/20 rounded-t-xl ">
+                <div className="flex flex-col  justify-start items-center gap-2">
                   <div>
                     <Avatar className="w-14 h-15 border-2 border-white/20">
                       <AvatarImage src="https://github.com/shadcn.png" />
@@ -227,39 +227,39 @@ export const NavBar = () => {
                   </div>
                   <div>
                     {user?.role === "Admin" && (
-                      <Badge className="bg-[#048c7f]">Admin</Badge>
+                      <Badge className="bg-white text-[#048c7f]">Admin</Badge>
                     )}
                     {user?.role === "Student" && (
-                      <Badge className="bg-[#048c7f]">Student</Badge>
+                      <Badge className="bg-white text-[#048c7f]">Student</Badge>
                     )}
                     {user?.role === "Faculty" && (
-                      <Badge className="bg-[#048c7f]">Faculty</Badge>
+                      <Badge className="bg-white text-[#048c7f]">Faculty</Badge>
                     )}
                   </div>
-                  <div>
+                  <div  >
                     {user.role == "Admin" && (
-                      <Badge className="bg-[#048c7f]">
+                      <Badge className="bg-white text-[#048c7f]">
                         {user.institutionDomain}
                       </Badge>
                     )}
                     {user.role == "Student" && (
-                      <Badge className="bg-[#048c7f]">
+                      <Badge className="bg-white text-[#048c7f]">
                         {user.departmentId.name}
                       </Badge>
                     )}
                     {user.role == "Faculty" && (
-                      <Badge className="bg-[#048c7f]">
+                      <Badge className="bg-white text-[#048c7f]">
                         {user.departmentId.name}
                       </Badge>
                     )}
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <span className="bg-[#048c7f] p-1 rounded-lg text-center">
+                  <span className="bg-white text-[#048c7f] p-1 rounded-lg text-center">
                     {user.firstName + " " + user.lastName}
                   </span>
 
-                  <span className="bg-[#048c7f] text-sm text-center p-1 rounded-lg">
+                  <span className="bg-white text-[#048c7f] text-sm text-center p-1 rounded-lg">
                     {user && user.role === "Admin"
                       ? user.institutionName.length > 15
                         ? user.institutionName.substring(0, 12) + "..."
@@ -274,27 +274,27 @@ export const NavBar = () => {
                 <ul className="space-y-4">
                   {user && user.role === "Admin" && (
                     <Link to={"/admin-dashboard"}>
-                      <li className="bg-[#37102d] shadow-lg w-[90%] m-auto  p-3 rounded-lg cursor-pointer">
+                      <li className="bg-whiteshadow-lg bg-white text-[#048c7f] w-[90%] m-auto  p-3 rounded-lg cursor-pointer">
                         Dashboard
                       </li>
                     </Link>
                   )}
                   {user && user.role === "Student" && (
                     <Link to={"/student-dashboard"}>
-                      <li className="bg-[#37102d] shadow-lg w-[90%] m-auto  p-3 rounded-lg cursor-pointer">
+                      <li className=" shadow-lg w-[90%] bg-white text-[#048c7f] m-auto  p-3 rounded-lg cursor-pointer">
                         Dashboard
                       </li>
                     </Link>
                   )}
                   {user && user.role === "Faculty" && (
                     <Link to={"/faculty-dashboard"}>
-                      <li className=" shadow-lg w-[90%] m-auto  p-3 rounded-lg cursor-pointer">
+                      <li className=" shadow-lg w-[90%] m-auto bg-white text-[#048c7f]  p-3 rounded-lg cursor-pointer">
                         Dashboard
                       </li>
                     </Link>
                   )}
 
-                  <li className=" w-[90%] m-auto  p-3 rounded-lg cursor-pointer">
+                  <li className=" w-[90%] m-auto bg-white text-[#048c7f]  p-3 rounded-lg cursor-pointer">
                     Profile
                   </li>
                   <Dialog open={open} onOpenChange={setOpen}>
