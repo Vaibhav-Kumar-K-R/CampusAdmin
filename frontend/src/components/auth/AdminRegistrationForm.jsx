@@ -14,7 +14,7 @@ const AdminRegistrationForm = () => {
 
   useEffect(() => {
     inputRef.current?.focus();
-    console.log(apiUrl); // Focus on the input field when the component mounts
+    // Focus on the input field when the component mounts
   }, []);
 
   // Form state
